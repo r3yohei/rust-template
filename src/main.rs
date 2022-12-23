@@ -36,11 +36,11 @@ struct State {
 }
 
 impl State {
-    pub fn new(input: &Input, end_turn: usize, pos: (usize, usize)) -> Self {
+    pub fn new(input: &Input) -> Self {
         Self {
             turn: 0,
-            end_turn: end_turn,
-            pos: pos,
+            end_turn: !0,
+            pos: input.s,
             seen: vec![vec![false; W]; H],
             output: String::new(),
             game_score: 0,
@@ -128,7 +128,8 @@ pub fn get_time() -> f64 {
 
 
 /// 入力をもとに答えを返す
-fn solve(input: &Input, state: &State) -> i32 {
+fn solve(input: &Input) -> i32 {
+    let state = State::new(&input);
     todo!();
 }
 
@@ -141,8 +142,7 @@ fn main() {
         board: [[usize; W]; H],
     }
     let input = Input{s, board};
-    let state = State::new(&input, !0, (0, 0));
-    let score = solve(&input, &state);
+    let score = solve(&input);
 
     eprintln!("score = {}", score);
     eprintln!("time = {:.3}", get_time());
