@@ -69,7 +69,7 @@ impl State {
     }
 
     /// 現在の状況でプレイヤーが可能な行動を全て取得する
-    pub fn legalActions(&self, input: &Input) -> Vec<usize> {
+    pub fn legal_actions(&self, input: &Input) -> Vec<usize> {
         let mut actions = vec![];
         for action in 0..4 {
             let ni = self.pos.0.wrapping_add(DIJ[action].0);
@@ -82,7 +82,7 @@ impl State {
     }
 
     /// 現在のゲーム状況を標準エラー出力に出力する
-    pub fn toString(&self, input: &Input) {
+    pub fn to_string(&self, input: &Input) {
         todo!();
     }
 }
